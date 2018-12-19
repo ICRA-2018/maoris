@@ -1,0 +1,17 @@
+name: maoris
+
+base:
+  system: ubuntu
+  version: 18.04
+
+apt-packages:
+  - libboost-all-dev
+  - libopencv-dev
+
+source-packages:
+  - name: BetterGraph
+    repo: https://github.com/MalcolmMielle/BetterGraph.git
+  - name: VoDiGrEx
+    repo: https://github.com/MalcolmMielle/VoDiGrEx.git
+    depends:
+      - libeigen3-dev
