@@ -1,4 +1,6 @@
 # MAORIS : MAp Of RIpples' Segmentation
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/icra2018/maoris.svg)](https://hub.docker.com/r/icra2018/maoris)
+<a href="#how-to-run-with-docker"><img src="https://img.shields.io/badge/Docker-instructions-brightgreen.svg"></a>
 
 Cutting most types of maps in smaller more meaningful bits.
 
@@ -76,3 +78,17 @@ evaluation_2files_fodler folder_with_your_segmentation folder_with_your_ground_t
 ```
 
 We also provide segmentation by maoris, DuDe and a Voronoi based segmentation. DuDe segmentation results are in `Test/RobotMap/DuDe_results` for the robot maps and `Test/Sketches/DuDe` for the sketch maps. The Voronoi based segmentation results are in `Test/RobotMap/Voronoi` for the robot maps and `Test/Sketches/Voronoi` for the sketch maps. maoris segmentation results are in `Test/RobotMap/maoris` for the robot maps and `Test/Sketches/maoris` for the sketch maps.
+
+# How to Run with Docker
+## Linux
+#### Prerequisites
+* NVIDIA GPU
+* [nvidia-docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0))
+
+Tested on Ubuntu 16.04.6 with Docker 18.06.1-ce.
+
+1. Open a terminal and run the command:
+```
+nvidia-docker run --rm -p 8888:8888 -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/maoris:latest
+```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
