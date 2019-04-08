@@ -81,14 +81,25 @@ We also provide segmentation by maoris, DuDe and a Voronoi based segmentation. D
 
 # How to Run with Docker
 ## Linux
-#### Prerequisites
-* NVIDIA GPU
-* [nvidia-docker 2.0](https://github.com/nvidia/nvidia-docker/wiki/Installation-(version-2.0))
 
 Tested on Ubuntu 16.04.6 with Docker 18.06.1-ce.
 
 1. Open a terminal and run the command:
 ```
-nvidia-docker run --rm -p 8888:8888 -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/maoris:latest
+docker run --rm -p 8888:8888 -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/maoris:latest
+```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
+
+## macOS
+#### Prerequisites
+* [XQuartz](https://www.xquartz.org/):
+  - Activate the option `Allow connections from network clients` in XQuartz settings
+  - Quit & restart XQuartz (to activate the setting)
+  - Open a terminal and run the command:<br/> `xhost + localhost`
+
+Tested on macOS Mojave 10.14.3 with XQuartz 2.7.11 and Docker Desktop 2.0.0.3 (engine: 18.09.2).
+1. Open a terminal and run the command:
+```
+docker run --rm -p 8888:8888 -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix:/tmp/.X11-unix  icra2018/maoris:latest
 ```
 2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
