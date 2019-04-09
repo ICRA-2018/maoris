@@ -110,14 +110,9 @@ docker run --rm -p 8888:8888 -e DISPLAY=host.docker.internal:0 -v /tmp/.X11-unix
   - Run `Xlaunch` from the Start menu
   - Select `Multiple windows`, `Start no client`, and set `Disable access control`
 
-Tested on Windows 10 Home wih VcXsrv 1.20.1.4 and Docker Toolbox 18.03.0-ce.
-1. Open a Docker Quickstart Terminal and run the command:
+Tested on Windows 10 Education wih VcXsrv 1.20.1.4 and Docker Desktop 2.0.0.3 (engine: 18.09.2).
+1. Open a Windows PowerShell and run the command:
 ```
-docker run --rm -p 8888:8888 -e DISPLAY=192.168.99.1:0  icra2018/maoris:latest
+docker run --rm -p 8888:8888 -e DISPLAY=host.docker.internal:0  icra2018/maoris:latest
 ```
-2. Run a web browser and open the link: [http://192.168.99.100:8888/lab/tree/README.ipynb](http://192.168.99.100:8888/lab/tree/README.ipynb)
-
-You may need to replace the IP addresses with the appropriate ones created by your Docker installation; check with the command:
-```
-docker-machine ip
-```
+2. Run a web browser and open the link: [http://localhost:8888/lab/tree/README.ipynb](http://localhost:8888/lab/tree/README.ipynb)
